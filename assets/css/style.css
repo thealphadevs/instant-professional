@@ -392,6 +392,13 @@ h6 {
     padding-top: 60px;
 }
 
+@media(min-width: 1199.98px) {
+    .carousel-caption {
+        bottom: unset;
+        top: 8rem;
+    }
+}
+
 #hero h2 {
     color: #fff;
     margin-bottom: 30px;
@@ -1916,7 +1923,7 @@ section {
     }
 }
 
-.hero-section {
+/* .hero-section {
     position: relative;
     top: 70px;
     padding: 10rem 0;
@@ -1926,11 +1933,20 @@ section {
     background-size: cover;
     background-position: center;
     margin-bottom: 5rem;
+} */
+
+.hero-section {
+    text-align: left;
 }
 
 .hero-section h1 {
     font-size: 3.5rem;
     font-weight: 700;
+    color: #444444;
+}
+
+.hero-section h5 {
+    color: #444444;
 }
 
 .hero-section h1 span {
@@ -1944,6 +1960,40 @@ section {
 .works {
     color: #272626;
     padding: 2rem 0;
+}
+
+
+@media(min-width: 1199.98px) {
+    .hero-section p {
+        max-width: 50%;
+    }
+}
+
+@media(max-width: 768px) {
+    .hero-section p {
+        display: none;
+    }
+}
+
+@media(max-width: 575px) {
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .works {
+        padding: 0.5rem;
+    }
+}
+
+@media(max-width: 425px) {
+    .hero-section h1 {
+        font-size: 1.6rem;
+    }
+
+    .works {
+        padding: 0rem;
+        font-size: 0.6rem;
+    }
 }
 
 .hero-section .know-btn {
