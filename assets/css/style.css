@@ -1867,6 +1867,7 @@ section {
 
 .marquee p {
   position: absolute;
+  font-size: x-small;
   width: 100%;
   height: 100%;
   margin: 0;
@@ -1878,6 +1879,23 @@ section {
   transform: translateX(100%);
   animation: scroll-left 18s linear infinite;
   -webkit-animation: scroll-left 18s linear infinite;
+}
+@media (max-width: 991.98px) {
+  .marquee p {
+    position: absolute;
+    font-size: x-small;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    line-height: 25px;
+    text-align: center;
+    font-weight: 500;
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    animation: scroll-left 18s linear infinite;
+    -webkit-animation: scroll-left 18s linear infinite;
+  }
 }
 
 @-moz-keyframes scroll-left {
