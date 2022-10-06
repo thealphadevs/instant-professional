@@ -639,22 +639,69 @@ h6 {
 /* ---------------------------------------------------------------
 # Video section
 --------------------------------------------------------------- */
+.video_section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 70px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+.video_container {
+  width: 420px;
+  height: 250px;
+
+  margin: 5px 5px;
+  padding: 10px;
+}
+.video_container i {
+  color: white;
+  font-size: 25px;
+}
 
 .video {
+  height: 200px;
+  width: 420px;
+  padding: 0px;
+}
+.localbtn {
+  width: 100%;
+  margin-top: 70px;
   display: flex;
   justify-content: center;
-  width: max-content;
 }
-.video iframe {
-  width: 350px;
-  height: 200px;
+.localbtn a button {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  color: black;
+
+  border: none;
+  background-color: #007aff;
 }
+.localbtn a {
+  text-decoration: none;
+}
+.localbtn a button:hover {
+  background-color: red;
+}
+
+/* -------------------our centers--------------- */
+.location_img {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.location_img img {
+  height: 171px;
+  width: 139px;
+}
+
 /*--------------------------------------------------------------
 # Sections General
 --------------------------------------------------------------*/
 
 section {
-  padding: 60px 0;
+  padding: 60px;
   overflow: hidden;
 }
 
