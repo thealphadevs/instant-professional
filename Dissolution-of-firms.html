@@ -42,8 +42,8 @@
   </head>
 
   <body>
-    <!-- -------------------Full Header Start----------------- -->
-    <div class="contain_headers">
+     <!-- -------------------Full Header Start----------------- -->
+     <div class="contain_headers">
       <!-- ======= First Header ======= -->
       <header
         id="first_header"
@@ -109,7 +109,7 @@
               <img
                 src="assets/img/LOGO.png"
                 alt=""
-                style="height: 70px; width: 70px"
+                
               />
             </a>
 
@@ -518,13 +518,21 @@
             <div class="card-body">
               <form>
                 <div class="form-group my-3">
-                  <input type="text " class="form-control" placeholder="Name" />
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Name"
+                    name="name"
+                    id="id_name"
+                  />
                 </div>
                 <div class="form-group my-3">
                   <input
-                    type="text "
+                    type="number"
                     class="form-control"
                     placeholder="Contact"
+                    name="contact"
+                    id="id_number"
                   />
                 </div>
                 <div class="form-group my-3">
@@ -532,23 +540,31 @@
                     type="text "
                     class="form-control"
                     placeholder="Email"
+                    name="email"
+                    id="id_email"
                   />
                 </div>
                 <div class="form-group my-3">
-                  <select name=" " id=" " class="form-control">
-                    <option value="">case one</option>
-                    <option value="">case two</option>
-                    <option value="">case three</option>
-                    <option value="">case four</option>
+                  <select name="case" id="id_case" class="form-control">
+                    <option value="Case 1">Case one</option>
+                    <option value="Case 2">Case two</option>
+                    <option value="Case 3">Case three</option>
+                    <option value="Case 4">Case four</option>
                   </select>
                 </div>
                 <div class="form-group my-3">
                   <label>Message:</label>
-                  <textarea name="" class="form-control"></textarea>
+                  <textarea
+                    name="message"
+                    id="id_message"
+                    class="form-control"
+                  ></textarea>
                 </div>
+                <p class="msg_notification" id="notif"></p>
+                <button class="btn card-style" type="button" id="id_form">Submit</button>
               </form>
 
-              <button class="btn card-style">Submit</button>
+              
             </div>
           </div>
         </div>
@@ -584,62 +600,6 @@
       </div>
     </div>
 
-    <!-- <div class="container py-5 ">
-        <h1 class="text-center ">Simple Prices | No Surprises</h1>
-        <hr>
-        <h5 class="text-center "><strong>Choose Your Package</strong></h5>
-        <div class="row d-flex justify-content-center">
-
-            <div class="col-md-4 ">
-                <div class="card my-5 ">
-                    <div class="card-header card-style text-white ">
-                        <h4 class="text-center ">ESSENTIAL</h4>
-                        <hr>
-                        <h1 class="text-center ">₹ 1999/-</h1>
-                        <h6 class="text-center ">(All Inclusive)</h6>
-                    </div>
-                    <div class="card-body ">
-                        <ul>
-                            <li>Execution of Dissolution Deed
-                            </li>
-                            <br>
-                        </ul>
-                        <hr>
-                        <p class="text-center ">Easy EMI's | Transparent Pricing</p>
-                        <hr>
-                        <div class="roll text-center ">
-                            <button class="btn card-style ">Checkout</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 ">
-                <div class="card my-5 ">
-                    <div class="card-header card-style text-white ">
-                        <h4 class="text-center ">ENHANCED</h4>
-                        <hr>
-                        <h1 class="text-center ">₹ 3499/-</h1>
-                        <h6 class="text-center ">(All Inclusive)</h6>
-                    </div>
-                    <div class="card-body ">
-                        <ul>
-                            <li>Execution of Dissolution Deed
-                            </li>
-                            <li>One year Income tax return</li>
-
-                        </ul>
-                        <hr>
-                        <p class="text-center text-blue ">Easy EMI's | Transparent Pricing</p>
-                        <hr>
-                        <div class="roll text-center ">
-                            <button class="btn card-style ">Checkout</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div> -->
 
     <div class="container-three">
       <div class="container py-5">
@@ -682,43 +642,7 @@
         <hr class="mt-0" />
       </div>
     </div>
-    <!-- <div class="container ">
-        <div class="row ">
-            <div class="col-md-2 ">
-                <div class="step1 text-center text-white py-3 px-2 ">
-                    <strong>1</strong>
-                    <h6>Complete a Simple form</h6>
-                </div>
-            </div>
-            <div class="col-md-3 ">
-                <div class="step2 text-center text-white py-3 ">
-                    <strong>2</strong>
-                    <h6> Verification of documents</h6>
-                </div>
-            </div>
-            <div class="col-md-2 ">
-
-                <div class="step3 text-center text-white py-3 px-2 ">
-                    <strong>3</strong>
-                    <h6>Application for GST registration</h6>
-                </div>
-            </div>
-            <div class="col-md-3 ">
-
-                <div class="step4 text-center text-white py-3 ">
-                    <strong>4</strong>
-                    <h6>ARN allotted</h6>
-                </div>
-            </div>
-            <div class="col-md-2 ">
-                <div class="step5 text-center text-white py-3 px-2 ">
-                    <strong>5</strong>
-                    <h6>GSTIN allotted</h6>
-                </div>
-            </div>
-        </div>
-        <hr>
-    </div> -->
+    
 
     <!-- ======= Footer ======= -->
     <footer id="footer">
@@ -856,5 +780,151 @@
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js "></script>
+        <!-- ////////////////////////////////////////Database//////////////////////////////// -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+<script type="module">
+
+import {initializeApp } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-app.js";
+import { getFirestore,collection,getDocs,addDoc} from "https://www.gstatic.com/firebasejs/9.11.0/firebase-firestore.js";
+const firebaseConfig = {
+    apiKey: "AIzaSyC7JpP2jUGt2Hpvcu5Q1m0jcQ7Tb8-hvLg",
+    authDomain: "instantprofessionals-db.firebaseapp.com",
+    projectId: "instantprofessionals-db",
+    storageBucket: "instantprofessionals-db.appspot.com",
+    messagingSenderId: "621711723160",
+    appId: "1:621711723160:web:283aefa981463776259eed",
+    measurementId: "G-WLBHK084PW"
+  };
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+const db= getFirestore();
+
+
+
+
+
+const form = document.getElementById('id_form');
+
+  form.addEventListener('click', async (e) => {
+  e.preventDefault();
+  
+  let name = document.getElementById("id_name").value
+  let email = document.getElementById("id_email").value
+  let number = document.getElementById("id_number").value
+  let message = document.getElementById("id_message").value
+  let case_value= document.getElementById("id_case").value
+  let notifi = document.getElementById("notif")
+  var currentdate = new Date(); 
+  var date =   currentdate.getDate() + "/"
+              + (currentdate.getMonth()+1)  + "/" 
+              + currentdate.getFullYear() + " @ "  
+              + currentdate.getHours() + ":"  
+              + currentdate.getMinutes() + ":" 
+              + currentdate.getSeconds();
+  let email_validation = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+  // notifi.style.display = "flex"
+ 
+ 
+
+  if (name === "" || message === "") {
+      notifi.innerHTML = "*Fill the Fields"
+      notifi.style.color = "red";
+      notifi.style.display = "flex"
+  }
+  else if (!email_validation.test(email)) {
+      notifi.innerHTML = "*Enter a valid email"
+      notifi.style.color = "red";
+      notifi.style.display = "flex"
+  }
+  else if (number.length != 10) {
+      notifi.innerHTML = "*Enter 10 digits number"
+      notifi.style.color = "red";
+      notifi.style.display = "flex"
+  }
+  else {
+     
+            notifi.innerHTML = "Message Sending...."
+            notifi.style.color = "green";
+            notifi.style.display = "flex"
+     
+     
+      const colRef =collection(db,email)
+     
+    await  addDoc(colRef,{
+      name: name,
+      email: email,
+      number: number,
+      case:case_value,
+      message: message,
+      date: date
+      }).then((result) => {
+
+       
+          
+            notifi.innerHTML = "Message delivered"
+             notifi.style.color = "green";
+            notifi.style.display = "flex"
+         
+        
+          document.getElementById("id_name").value = null
+          document.getElementById("id_email").value = null
+          document.getElementById("id_number").value = null
+          document.getElementById("id_message").value = null
+         
+
+      
+
+      }).catch((err) => {
+        document.getElementById("notif").innerHTML="Message not delivered try again"
+        document.getElementById("notif").style.display = "flex"
+        document.getElementById("notif").style.color = "red"
+      });
+      await (function  () {
+          // https://dashboard.emailjs.com/admin/account
+          
+          emailjs.send(
+          "service_sq0lqoe",
+          "template_a5cy1ze",
+          {
+            name: name,
+           email: email,
+           number: number,
+           case_type:case_value,
+           message: message,
+           date: date
+            
+          },
+          "ODKoii1PnLuKXXhpw"
+        )
+        .then(
+          function (response) {
+            console.log("SUCCESS!", response.status, response.text);
+          },
+          function (error) {
+            console.log("FAILED...", error);
+          }
+        );
+
+      })();
+
+       setTimeout(()=>{
+        document.getElementById("notif").style.display = "none"
+       },1500)
+      
+      
+     
+     
+
+      
+  }
+})
+</script>
+  
+
+  <!-- ////////////////////////////////////End Data/////////////////////// -->
   </body>
 </html>
