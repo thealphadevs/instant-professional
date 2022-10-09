@@ -2001,9 +2001,9 @@ section {
   margin-bottom: 5px;
   height: 50px;
   overflow: hidden;
-  background: #2569b617;
-  color: #2569b6;
-  border: 1px solid #116fdb77;
+  background: #32620e;
+  color: white;
+  border: 1px solid #32620e;
 }
 
 .marquee p {
