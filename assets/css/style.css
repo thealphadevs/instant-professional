@@ -72,6 +72,9 @@ h6 {
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
+.container {
+  margin: 0px 0px;
+}
 #first_header {
   height: 50px;
   transition: all 0.5s;
@@ -157,14 +160,19 @@ h6 {
 } */
 
 #header .logo-brand {
-  margin-top: 5px;
+  margin-top: 0px;
+  margin-bottom: 7px;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
 }
 
 #header .logo-brand img {
   padding: 0;
   margin: 0;
-  width: 115px;
-  max-height: 85px;
+  width: 150px;
+  max-height: 130px;
 }
 .first_container {
   display: flex;
@@ -201,6 +209,8 @@ h6 {
 
 .navbar {
   padding: 0;
+  position: absolute;
+  right: 20px;
 }
 
 .navbar ul {
