@@ -72,7 +72,7 @@ h6 {
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
-.container {
+#header .container {
   margin: 0px 0px;
 }
 #first_header {
@@ -209,8 +209,6 @@ h6 {
 
 .navbar {
   padding: 0;
-  position: absolute;
-  right: 20px;
 }
 
 .navbar ul {
