@@ -473,6 +473,70 @@
                 </div>
               </ul>
             </li>
+            <li class="dropdown dropdown-menu-right">
+              <a href="#">
+                <span>
+                    Account
+                </span>
+                <i class="bi bi-chevron-down"></i>
+              </a>
+              <ul class="dropdown-xl-screen" style="margin-right: 100px">
+                <div class="row mx-lg-0">
+                  <div class="row">
+                    <div class="col-md-4 pad">
+                      <div class="row">
+                        <div class="col-12 ps-4 mt-3">
+                          <h5 class="border-bottom pb-2">Login/Services</h5>
+                        </div>
+                      </div>
+                      <li id="login/service"></li>
+                      <li id="isuser"></li>
+                      
+                     
+                     
+                      
+                    </div>
+                    
+                  </div>
+                </div>
+              </ul>
+            </li>
+             <!-- <li class="dropdown dropdown-menu-right">
+              <a href="#">
+                <span>Login/Register</span>
+                <i class="bi bi-chevron-down"></i>
+              </a>
+              <ul class="dropdown-xl-screen" style="margin-right: 100px">
+                <div class="row mx-lg-0">
+                  <div class="row">
+                    <div class="col-md-4 pad">
+                      <div class="row">
+                        <div class="col-12 ps-4 mt-3">
+                          <h5 class="border-bottom pb-2">Login/Register</h5>
+                        </div>
+                      </div>
+                      <li>
+                        <a href="LoginForm.html"
+                          >Login/Register</a
+                        >
+                      </li>
+                      <li>
+                        <a href="Trademark-assignment.html"
+                          >Your Services</a
+                        >
+                      </li>
+                      
+                      
+                      
+                    </div>
+                  
+                  
+                  </div>
+                </div>
+              </ul>
+            </li> -->
+
+        
             <!-- <li><a class="nav-link scrollto" href="#team">Team</a></li> -->
             <!-- <li><a class="nav-link scrollto" href="#Media">Media</a></li> -->
             <!-- <li><a class="nav-link scrollto" href="#Knowledge">Knowledge Bank</a></li> -->
@@ -648,5 +712,32 @@
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
+    <script>
+
+ 
+      function fn(){
+        
+        if(localStorage.getItem('user')===null){
+           let text=  document.getElementById('login/service') 
+           text.innerHTML="<a href='LoginForm.html'>Login/Register</a>"
+      }
+      else{
+        let text=  document.getElementById('login/service')
+           text.innerHTML="<a href='YourServices.html'>Your Services</a>"
+        let logout=document.getElementById('isuser')
+          logout.innerHTML="<a id='logoutbtn' onclick='logout()'>Log Out</a>"
+      }
+      }
+      fn();
+      // -------------------------------------------logout function-----------------------------------------
+      function logout(e){
+              
+              localStorage.removeItem('user')
+              window.location.assign("index.html")
+    
+             }
+      
+      
+    </script>
   </body>
 </html>

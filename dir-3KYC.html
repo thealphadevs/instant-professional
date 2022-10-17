@@ -473,6 +473,70 @@
                   </div>
                 </ul>
               </li>
+              <li class="dropdown dropdown-menu-right">
+                <a href="#">
+                  <span>
+                      Account
+                  </span>
+                  <i class="bi bi-chevron-down"></i>
+                </a>
+                <ul class="dropdown-xl-screen" style="margin-right: 100px">
+                  <div class="row mx-lg-0">
+                    <div class="row">
+                      <div class="col-md-4 pad">
+                        <div class="row">
+                          <div class="col-12 ps-4 mt-3">
+                            <h5 class="border-bottom pb-2">Login/Services</h5>
+                          </div>
+                        </div>
+                        <li id="login/service"></li>
+                        <li id="isuser"></li>
+                        
+                       
+                       
+                        
+                      </div>
+                      
+                    </div>
+                  </div>
+                </ul>
+              </li>
+               <!-- <li class="dropdown dropdown-menu-right">
+                <a href="#">
+                  <span>Login/Register</span>
+                  <i class="bi bi-chevron-down"></i>
+                </a>
+                <ul class="dropdown-xl-screen" style="margin-right: 100px">
+                  <div class="row mx-lg-0">
+                    <div class="row">
+                      <div class="col-md-4 pad">
+                        <div class="row">
+                          <div class="col-12 ps-4 mt-3">
+                            <h5 class="border-bottom pb-2">Login/Register</h5>
+                          </div>
+                        </div>
+                        <li>
+                          <a href="LoginForm.html"
+                            >Login/Register</a
+                          >
+                        </li>
+                        <li>
+                          <a href="Trademark-assignment.html"
+                            >Your Services</a
+                          >
+                        </li>
+                        
+                        
+                        
+                      </div>
+                    
+                    
+                    </div>
+                  </div>
+                </ul>
+              </li> -->
+  
+          
               <!-- <li><a class="nav-link scrollto" href="#team">Team</a></li> -->
               <!-- <li><a class="nav-link scrollto" href="#Media">Media</a></li> -->
               <!-- <li><a class="nav-link scrollto" href="#Knowledge">Knowledge Bank</a></li> -->
@@ -879,145 +943,181 @@
 
 <script type="module">
 
-import {initializeApp } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-app.js";
-import { getFirestore,collection,getDocs,addDoc} from "https://www.gstatic.com/firebasejs/9.11.0/firebase-firestore.js";
-const firebaseConfig = {
-    apiKey: "AIzaSyC7JpP2jUGt2Hpvcu5Q1m0jcQ7Tb8-hvLg",
-    authDomain: "instantprofessionals-db.firebaseapp.com",
-    projectId: "instantprofessionals-db",
-    storageBucket: "instantprofessionals-db.appspot.com",
-    messagingSenderId: "621711723160",
-    appId: "1:621711723160:web:283aefa981463776259eed",
-    measurementId: "G-WLBHK084PW"
-  };
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-const db= getFirestore();
-
-
-
-
-
-const form = document.getElementById('id_form');
-
-  form.addEventListener('click', async (e) => {
-  e.preventDefault();
+  import {initializeApp } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-app.js";
+  import { getFirestore,collection,getDocs,addDoc} from "https://www.gstatic.com/firebasejs/9.11.0/firebase-firestore.js";
+  const firebaseConfig = {
+      apiKey: "AIzaSyC7JpP2jUGt2Hpvcu5Q1m0jcQ7Tb8-hvLg",
+      authDomain: "instantprofessionals-db.firebaseapp.com",
+      projectId: "instantprofessionals-db",
+      storageBucket: "instantprofessionals-db.appspot.com",
+      messagingSenderId: "621711723160",
+      appId: "1:621711723160:web:283aefa981463776259eed",
+      measurementId: "G-WLBHK084PW"
+    };
   
-  let name = document.getElementById("id_name").value
-  let email = document.getElementById("id_email").value
-  let number = document.getElementById("id_number").value
-  let message = document.getElementById("id_message").value
-  let case_value= document.getElementById("id_case").value
-  let notifi = document.getElementById("notif")
-  var currentdate = new Date(); 
-  var date =   currentdate.getDate() + "/"
-              + (currentdate.getMonth()+1)  + "/" 
-              + currentdate.getFullYear() + " @ "  
-              + currentdate.getHours() + ":"  
-              + currentdate.getMinutes() + ":" 
-              + currentdate.getSeconds();
-  let email_validation = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-  // notifi.style.display = "flex"
- 
- 
-
-  if (name === "" || message === "") {
-      notifi.innerHTML = "*Fill the Fields"
-      notifi.style.color = "red";
-      notifi.style.display = "flex"
-  }
-  else if (!email_validation.test(email)) {
-      notifi.innerHTML = "*Enter a valid email"
-      notifi.style.color = "red";
-      notifi.style.display = "flex"
-  }
-  else if (number.length != 10) {
-      notifi.innerHTML = "*Enter 10 digits number"
-      notifi.style.color = "red";
-      notifi.style.display = "flex"
-  }
-  else {
-     
-            notifi.innerHTML = "Message Sending...."
-            notifi.style.color = "green";
-            notifi.style.display = "flex"
-     
-     
-      const colRef =collection(db,email)
-     
-    await  addDoc(colRef,{
-      name: name,
-      email: email,
-      number: number,
-      case:case_value,
-      message: message,
-      date: date
-      }).then((result) => {
-
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  
+  const db= getFirestore();
+  
+  
+  
+  
+  
+  const form = document.getElementById('id_form');
+  
+    form.addEventListener('click', async (e) => {
+      if(localStorage.getItem('user')){
+               
+        e.preventDefault();
+    
+    let name = document.getElementById("id_name").value
+    let email = document.getElementById("id_email").value
+    let number = document.getElementById("id_number").value
+    let message = document.getElementById("id_message").value
+    let case_value= document.getElementById("id_case").value
+    let notifi = document.getElementById("notif")
+    var currentdate = new Date(); 
+    var date =   currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1)  + "/" 
+                + currentdate.getFullYear() + " @ "  
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds();
+    let email_validation = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+    // notifi.style.display = "flex"
+   
+   
+  
+    if (name === "" || message === "") {
+        notifi.innerHTML = "*Fill the Fields"
+        notifi.style.color = "red";
+        notifi.style.display = "flex"
+    }
+    else if (!email_validation.test(email)) {
+        notifi.innerHTML = "*Enter a valid email"
+        notifi.style.color = "red";
+        notifi.style.display = "flex"
+    }
+    else if (number.length != 10) {
+        notifi.innerHTML = "*Enter 10 digits number"
+        notifi.style.color = "red";
+        notifi.style.display = "flex"
+    }
+    else {
        
-          
-            notifi.innerHTML = "Message delivered"
-             notifi.style.color = "green";
-            notifi.style.display = "flex"
-         
-        
-          document.getElementById("id_name").value = null
-          document.getElementById("id_email").value = null
-          document.getElementById("id_number").value = null
-          document.getElementById("id_message").value = null
-         
-
-      
-
-      }).catch((err) => {
-        document.getElementById("notif").innerHTML="Message not delivered try again"
-        document.getElementById("notif").style.display = "flex"
-        document.getElementById("notif").style.color = "red"
-      });
-      await (function  () {
-          // https://dashboard.emailjs.com/admin/account
-          
-          emailjs.send(
-          "service_sq0lqoe",
-          "template_a5cy1ze",
-          {
-            name: name,
-           email: email,
-           number: number,
-           case_type:case_value,
-           message: message,
-           date: date
-            
-          },
-          "ODKoii1PnLuKXXhpw"
-        )
-        .then(
-          function (response) {
-            console.log("SUCCESS!", response.status, response.text);
-          },
-          function (error) {
-            console.log("FAILED...", error);
-          }
-        );
-
-      })();
-
-       setTimeout(()=>{
-        document.getElementById("notif").style.display = "none"
-       },1500)
-      
-      
-     
-     
-
-      
-  }
-})
-</script>
+              notifi.innerHTML = "Message Sending...."
+              notifi.style.color = "green";
+              notifi.style.display = "flex"
+       
+       
+        const colRef =collection(db,email)
+       
+      await  addDoc(colRef,{
+        name: name,
+        email: email,
+        number: number,
+        case:case_value,
+        message: message,
+        date: date,
+        service:"DIR 3 KYC"
+        }).then((result) => {
   
+         
+            
+              notifi.innerHTML = "Message delivered"
+               notifi.style.color = "green";
+              notifi.style.display = "flex"
+           
+          
+            document.getElementById("id_name").value = null
+            document.getElementById("id_email").value = null
+            document.getElementById("id_number").value = null
+            document.getElementById("id_message").value = null
+           
+  
+        
+  
+        }).catch((err) => {
+          document.getElementById("notif").innerHTML="Message not delivered try again"
+          document.getElementById("notif").style.display = "flex"
+          document.getElementById("notif").style.color = "red"
+        });
+        await (function  () {
+            // https://dashboard.emailjs.com/admin/account
+            
+            emailjs.send(
+            "service_sq0lqoe",
+            "template_a5cy1ze",
+            {
+              name: name,
+             email: email,
+             number: number,
+             case_type:case_value,
+             message: message,
+             date: date,
+             
+              
+            },
+            "ODKoii1PnLuKXXhpw"
+          )
+          .then(
+            function (response) {
+              console.log("SUCCESS!", response.status, response.text);
+            },
+            function (error) {
+              console.log("FAILED...", error);
+            }
+          );
+  
+        })();
+  
+         setTimeout(()=>{
+          document.getElementById("notif").style.display = "none"
+         },1500)
+        
+        
+       
+       
+  
+        
+    }
+  
+      }
+      else{
+            window.location.assign('LoginForm.html')
+      }
+    
+  })
+  </script>
+  
+<script>
 
+ 
+  function fn(){
+    
+    if(localStorage.getItem('user')===null){
+       let text=  document.getElementById('login/service') 
+       text.innerHTML="<a href='LoginForm.html'>Login/Register</a>"
+  }
+  else{
+    let text=  document.getElementById('login/service')
+       text.innerHTML="<a href='YourServices.html'>Your Services</a>"
+    let logout=document.getElementById('isuser')
+      logout.innerHTML="<a id='logoutbtn' onclick='logout()'>Log Out</a>"
+  }
+  }
+  fn();
+  // -------------------------------------------logout function-----------------------------------------
+  function logout(e){
+          
+          localStorage.removeItem('user')
+          window.location.assign("index.html")
+
+         }
+  
+  
+</script>
   <!-- ////////////////////////////////////End Data/////////////////////// -->
   </body>
 </html>

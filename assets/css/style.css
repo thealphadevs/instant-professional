@@ -209,6 +209,8 @@ h6 {
 
 .navbar {
   padding: 0;
+  position: absolute;
+  right: 10px;
 }
 
 .navbar ul {
@@ -2226,5 +2228,87 @@ section {
   }
   100% {
     transform: scale(1);
+  }
+}
+.loginContainer {
+  /* height: 70vh; */
+  margin: 10px;
+  display: flex;
+
+  margin-top: 50px;
+  justify-content: center;
+  align-items: center;
+}
+.loginPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: max-content;
+  width: 370px;
+  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
+  padding: 52px;
+}
+#logInForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 10px;
+}
+.loginlogo {
+  width: 100%;
+}
+.loginlogo img {
+  height: 130px;
+  width: 130px;
+}
+.loginTitle {
+  font-size: large;
+  font-weight: 500;
+  width: 100%;
+}
+.loginTitle h5 {
+  font-size: x-large;
+  font-weight: 700;
+  font-family: sans-serif;
+}
+#loginButton {
+  color: white;
+  width: 100%;
+}
+#RegisterButton {
+  color: white;
+  width: 100%;
+}
+
+#logInForm input:focus {
+  border-color: #05082b;
+  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
+  height: 40px;
+}
+#logInForm p {
+  font-size: 13px;
+  width: 100%;
+}
+#logInForm p a {
+  color: blue;
+}
+#resetPasswordlink {
+  color: #05082b;
+  font-size: 11px;
+  font-weight: 500;
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+.table {
+  background-color: #05082b;
+  color: white;
+}
+
+@media (max-width: 991px) {
+  .tableSize {
+    font-size: 8px;
   }
 }
