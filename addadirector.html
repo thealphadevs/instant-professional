@@ -386,17 +386,17 @@
                       </li>
                       <li>
                         <a href="Trademark-assignment.html"
-                          >Trademark Assignent</a
+                          >TRADEMARK ASSIGNMENT</a
                         >
                       </li>
                       <li>
                         <a href="Trademark-opposition.html"
-                          >Tradenark opposition</a
+                          >TRADEMARK OPPOSITION</a
                         >
                       </li>
                       <li>
                         <a href="trademark-restification.html"
-                          >Trademark Restification</a
+                          >TRADEMARK RESTIFICTION</a
                         >
                       </li>
                       <li>
@@ -415,7 +415,7 @@
                       </div>
                       <li>
                         <a href="trademark-objections.html"
-                          >Trademark Objections</a
+                          >TRADEMARK OBJECTIONS </a
                         >
                       </li>
                       <li>
@@ -616,6 +616,10 @@
                   </select>
                 </div>
                 <div class="form-group my-3">
+                  <label>Attach File:</label>
+                 <input type="file" id="attachFile"  class="form-control" placeholder="Upload File">
+                </div>
+                <div class="form-group my-3">
                   <label>Message:</label>
                   <textarea
                     name="message"
@@ -659,14 +663,14 @@
         <strong
           >Minimum number of director based on the type of the company:</strong
         >
-        <table class="table my-5 table-striped">
+        <table class="table my-5 table-striped" >
           <thead>
             <tr class="py-5">
               <th><strong>Type of company</strong></th>
               <th><strong>No. of Director required</strong></th>
             </tr>
           </thead>
-          <tr>
+          <tr style="color: white;">
             <td>One Person Company</td>
             <td>1</td>
           </tr>
@@ -674,7 +678,7 @@
             <td>Private Limited Company</td>
             <td>2</td>
           </tr>
-          <tr>
+          <tr style="color: white;">
             <td>Public Limited Company</td>
             <td>3</td>
           </tr>
@@ -934,10 +938,7 @@
               </h4>
               <div class="card-body">
                 <div class="center text-center">
-                  <img
-                    src="https://mk0Instant Professionalscow6a4i.kinstacdn.com/wp-content/uploads/2017/12/File-checklist-1.png "
-                    alt=" "
-                  />
+                 
                 </div>
 
                 <p>
@@ -956,10 +957,7 @@
               </h4>
               <div class="card-body">
                 <div class="center text-center">
-                  <img
-                    src=" https://mk0Instant Professionalscow6a4i.kinstacdn.com/wp-content/uploads/2017/12/Registration-2.png "
-                    lt=" "
-                  />
+                 
                 </div>
                 <p>
                   We will apply for your DSC & DIN. DIN is Director
@@ -977,10 +975,7 @@
               </h4>
               <div class="card-body">
                 <div class="center text-center">
-                  <img
-                    src=" https://mk0Instant Professionalscow6a4i.kinstacdn.com/wp-content/uploads/2017/12/Name-Approval-1.png "
-                    lt=" "
-                  />
+                  
                 </div>
                 <p>
                   Once we complete the documentation for the appointment of the
@@ -1140,6 +1135,8 @@
 
 import {initializeApp } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-app.js";
 import { getFirestore,collection,getDocs,addDoc} from "https://www.gstatic.com/firebasejs/9.11.0/firebase-firestore.js";
+import { getStorage,ref as sRef,uploadBytesResumable,getDownloadURL} from "https://www.gstatic.com/firebasejs/9.11.0/firebase-storage.js";
+
 const firebaseConfig = {
     apiKey: "AIzaSyC7JpP2jUGt2Hpvcu5Q1m0jcQ7Tb8-hvLg",
     authDomain: "instantprofessionals-db.firebaseapp.com",
@@ -1161,6 +1158,8 @@ const db= getFirestore();
 
 const form = document.getElementById('id_form');
 
+
+
   form.addEventListener('click', async (e) => {
     if(localStorage.getItem('user')){
              
@@ -1171,6 +1170,7 @@ const form = document.getElementById('id_form');
   let number = document.getElementById("id_number").value
   let message = document.getElementById("id_message").value
   let case_value= document.getElementById("id_case").value
+ 
   let notifi = document.getElementById("notif")
   var currentdate = new Date(); 
   var date =   currentdate.getDate() + "/"
@@ -1201,11 +1201,32 @@ const form = document.getElementById('id_form');
   }
   else {
      
+           
+
+      // ------------------Uploading Attached File-----------------
+           
+
+      let attachDoc=document.getElementById("attachFile")
+      let URL=null
+      if (attachDoc.files[0]!=undefined) {
+            notifi.innerHTML = "File Uploading...."  
+            notifi.style.color = "green";
+            notifi.style.display = "flex"
+        let storage=getStorage();
+        let storageRef=sRef(storage,`${localStorage.getItem('user')}/` + attachDoc.files[0].name )
+        const UploadTask= await uploadBytesResumable(storageRef,attachDoc.files[0]);
+        URL= await getDownloadURL(storageRef)
+      }
+      
+     
+       
+      // -------------------Uploading Attached File Ended-------------------         
+        
             notifi.innerHTML = "Message Sending...."
             notifi.style.color = "green";
             notifi.style.display = "flex"
-     
-     
+      
+       
       const colRef =collection(db,email)
      
     await  addDoc(colRef,{
@@ -1215,7 +1236,8 @@ const form = document.getElementById('id_form');
       case:case_value,
       message: message,
       date: date,
-      service:"Add a Director"
+      service:"Add a Director",
+      attachDoc:URL,
       }).then((result) => {
 
        
@@ -1229,6 +1251,7 @@ const form = document.getElementById('id_form');
           document.getElementById("id_email").value = null
           document.getElementById("id_number").value = null
           document.getElementById("id_message").value = null
+          document.getElementById("attachFile").value=null
          
 
       

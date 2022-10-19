@@ -391,17 +391,17 @@
                       </li>
                       <li>
                         <a href="Trademark-assignment.html"
-                          >Trademark Assignent</a
+                          >TRADEMARK ASSIGNMENT</a
                         >
                       </li>
                       <li>
                         <a href="Trademark-opposition.html"
-                          >Tradenark opposition</a
+                          >TRADEMARK OPPOSITION</a
                         >
                       </li>
                       <li>
                         <a href="trademark-restification.html"
-                          >Trademark Restification</a
+                          >TRADEMARK RESTIFICTION</a
                         >
                       </li>
                       <li>
@@ -569,6 +569,7 @@
       <th>Service Type</th>
       <th>Case Type</th>
       <th>Date</th>
+      <th>Attached File</th>
     </thead>
     <tbody id="tbody1" class="tbody"></tbody>
   </table>
@@ -738,7 +739,7 @@ const db= getFirestore();
 if(localStorage.getItem('user')){
   var tbody=document.getElementById('tbody1')
 
-function AddItemtoTable(name,email,service,casetype,date){
+function AddItemtoTable(name,email,service,casetype,date,attachDoc){
      let trow=document.createElement('tr');
 
      let td1=document.createElement('td');
@@ -746,6 +747,7 @@ function AddItemtoTable(name,email,service,casetype,date){
      let td3=document.createElement('td');
      let td4=document.createElement('td');
      let td5=document.createElement('td');
+     let td6=document.createElement('td');
      
 
      td1.innerText=name;
@@ -753,12 +755,23 @@ function AddItemtoTable(name,email,service,casetype,date){
      td3.innerText=service;
      td4.innerText=casetype;
      td5.innerText=date;
+     if(attachDoc!=null){
+      td6.innerHTML=`<a href="${attachDoc}" target="_blank">See</a>`
+     }
+     else{
+      td6.innerHTML="No Attached File"
+     }
+     
+     
+    
+
 
      trow.appendChild(td1);
      trow.appendChild(td2);
      trow.appendChild(td3);
      trow.appendChild(td4);
      trow.appendChild(td5);
+     trow.appendChild(td6);
      
      
      tbody.appendChild(trow)
@@ -767,7 +780,7 @@ function AddItemtoTable(name,email,service,casetype,date){
 function AddAllItemsToTable(users){
        
        users.forEach(element => {
-            AddItemtoTable(element.name,element.email,element.service,element.case,element.date)
+            AddItemtoTable(element.name,element.email,element.service,element.case,element.date,element.attachDoc)
        });
 }
 

@@ -386,17 +386,17 @@
                       </li>
                       <li>
                         <a href="Trademark-assignment.html"
-                          >Trademark Assignent</a
+                          >TRADEMARK ASSIGNMENT</a
                         >
                       </li>
                       <li>
                         <a href="Trademark-opposition.html"
-                          >Tradenark opposition</a
+                          >TRADEMARK OPPOSITION</a
                         >
                       </li>
                       <li>
                         <a href="trademark-restification.html"
-                          >Trademark Restification</a
+                          >TRADEMARK RESTIFICTION</a
                         >
                       </li>
                       <li>
@@ -620,6 +620,10 @@
                     <option value="Case 3">Case three</option>
                     <option value="Case 4">Case four</option>
                   </select>
+                </div>
+                <div class="form-group my-3">
+                  <label>Attach File:</label>
+                 <input type="file" id="attachFile"  class="form-control" placeholder="Upload File">
                 </div>
                 <div class="form-group my-3">
                   <label>Message:</label>
@@ -1031,6 +1035,7 @@
 
   import {initializeApp } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-app.js";
   import { getFirestore,collection,getDocs,addDoc} from "https://www.gstatic.com/firebasejs/9.11.0/firebase-firestore.js";
+  import { getStorage,ref as sRef,uploadBytesResumable,getDownloadURL} from "https://www.gstatic.com/firebasejs/9.11.0/firebase-storage.js";
   const firebaseConfig = {
       apiKey: "AIzaSyC7JpP2jUGt2Hpvcu5Q1m0jcQ7Tb8-hvLg",
       authDomain: "instantprofessionals-db.firebaseapp.com",
@@ -1091,7 +1096,24 @@
         notifi.style.display = "flex"
     }
     else {
+       // ------------------Uploading Attached File-----------------
+           
+     
+      let attachDoc=document.getElementById("attachFile")
+      let URL=null
+      if (attachDoc.files[0]!=undefined) {
+            notifi.innerHTML = "File Uploading...."  
+            notifi.style.color = "green";
+            notifi.style.display = "flex"
+        let storage=getStorage();
+        let storageRef=sRef(storage,`${localStorage.getItem('user')}/` + attachDoc.files[0].name )
+        const UploadTask= await uploadBytesResumable(storageRef,attachDoc.files[0]);
+        URL= await getDownloadURL(storageRef)
+      }
+      
+     
        
+      // -------------------Uploading Attached File Ended------------------- 
               notifi.innerHTML = "Message Sending...."
               notifi.style.color = "green";
               notifi.style.display = "flex"
@@ -1106,7 +1128,8 @@
         case:case_value,
         message: message,
         date: date,
-        service:"EPF Registration"
+        service:"EPF Registration",
+        attachDoc:URL,
         }).then((result) => {
   
          
@@ -1120,6 +1143,7 @@
             document.getElementById("id_email").value = null
             document.getElementById("id_number").value = null
             document.getElementById("id_message").value = null
+            document.getElementById("attachFile").value=null
            
   
         
